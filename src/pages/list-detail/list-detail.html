@@ -1,0 +1,43 @@
+<!--
+  Generated template for the ListDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>listDetail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="frontPage">
+
+  <ion-card>
+    <img src="assets/imgs/nin-live.png" />
+    <ion-card-content>
+      <ion-card-title>
+        {{this._title}}        
+      </ion-card-title>
+      <p> {{this._body}} </p>
+      <br>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <p>
+              <ion-icon name="calendar" item start></ion-icon> {{this._date | date}} </p>
+          </ion-col>          
+        </ion-row>        
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <div padding>
+    <button ion-button full icon-right (click)="pushOnPAge(this._id)" color="danger">
+      Delete
+      <ion-icon name="trash"></ion-icon>
+    </button>
+  </div>
+
+</ion-content>

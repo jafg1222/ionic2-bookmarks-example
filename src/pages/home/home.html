@@ -7,12 +7,49 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content padding class="frontPage">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+          <ion-list >
+              <ion-list-header style="color:white">
+                  Action
+                </ion-list-header>
+          </ion-list>
+          <ion-card *ngFor="let note of note">
+            <ion-card-header>
+              {{note.title}}
+            </ion-card-header>
+            <ion-card-content style="color: black">
+              {{note.body}}
+            </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+          <ion-list>
+              <ion-list-header style="color:white">
+                  New Note
+                </ion-list-header>                
+        </ion-list>
+        <form [formGroup]="todo" (ngSubmit)="logForm()">
+          <ion-item>
+            <ion-label>Title</ion-label>
+            <ion-input type="text" formControlName="title"></ion-input>      
+          </ion-item>
+          <ion-item>
+            <ion-label>Note</ion-label>
+            <ion-textarea formControlName="bodyNote"></ion-textarea>
+          </ion-item>
+          <ion-item >
+              <p><ion-icon name="calendar" item start></ion-icon> {{this.clocking | async | date:'medium'}} </p>  
+          </ion-item>
+          <button ion-button full type="submit" [disabled]="!todo.valid">Add</button>
+        </form></ion-col>
+    </ion-row>
+  </ion-grid> 
+  
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
